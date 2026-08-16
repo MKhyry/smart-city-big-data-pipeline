@@ -1,0 +1,26 @@
+# .gitignore
+
+# Data files
+*.csv
+*.parquet
+*.avro
+/data/
+/exported_data/
+/smartcity_exports/
+
+# Spark / Hadoop runtime artifacts
+*.log
+checkpoint/
+spark-warehouse/
+metastore_db/
+derby.log
+
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# OS / Editor
+.DS_Store
+.vscode/
+Thumbs.db

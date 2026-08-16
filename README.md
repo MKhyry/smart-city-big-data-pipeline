@@ -64,8 +64,8 @@ smart-city-bigdata-pipeline/
 │   ├── architecture.png
 │   ├── data-schemas.md
 │   ├── kafka-topics.md
-│   ├── hive-table-definitions.md
-│   └── team-workflow.md
+│   └── hive-table-definitions.md
+│    
 │
 ├── data-generation/
 │   ├── traffic_generator.py

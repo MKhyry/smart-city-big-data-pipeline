@@ -19,16 +19,10 @@ Populated continuously by `processing/spark_jobs/stream_ingest_to_hdfs.py`.
 |---|---|---|
 | `traffic_weather_impact` | `/data/smartcity/aggregated/traffic_weather_impact` | zone_id STRING, hour_window TIMESTAMP, condition STRING, avg_speed_kmh DOUBLE, avg_vehicle_count DOUBLE, record_count BIGINT |
 | `incident_summary` | `/data/smartcity/aggregated/incident_summary` | zone_id STRING, severity STRING, incident_count BIGINT, avg_response_time_minutes DOUBLE |
+| `transit_delay_summary` | `/data/smartcity/aggregated/transit_summary` | route_id STRING, avg_delay_minutes DOUBLE, avg_passenger_count DOUBLE, record_count BIGINT |
 
 Populated by a single run of `processing/spark_jobs/batch_aggregate.py`.
 
-## Export-Time Table (`export_to_csv.hql`)
-
-| Table | Location | Columns |
-|---|---|---|
-| `transit_delay_summary` | Hive-managed (internal, created via `CTAS` from `raw_transit`) | route_id STRING, avg_delay_minutes DOUBLE, avg_passenger_count DOUBLE, record_count BIGINT |
-
-Built inline during Phase 5 export — not backed by a Spark-written HDFS directory like the others.
 
 ## Rebuild Order
 1. `hive -f storage/hive/create_raw_tables.hql`
